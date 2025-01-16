@@ -1,9 +1,9 @@
-#' Obtain pseudo-MS/MS spectra for an LC-MS feature of interest.
-#'
-#' Script to obtain pseudo MS/MS spectra from a feature of
+#' Function to obtain pseudo MS/MS spectra from a feature of
 #' interest from All-ion fragmentation experiments (e.g. MSe, bbCID, AIF)
 #'
 #' @author  Goncalo Graca
+#' 16 January 2025
+#'
 #' @param peaksF1 LC-MS picked peaks from xcmsF1 dataset using XCMS.
 #' @param peaksF2 LC-MS picked peaks from xcmsF2 dataset using XCMS.
 #' @param fmz The m/z for the feature of interest.
