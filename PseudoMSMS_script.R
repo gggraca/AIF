@@ -1,12 +1,13 @@
-#' Obtain pseudo-MS/MS spectra for an LC-MS feature of interest.
-#'
 #' Script to obtain pseudo MS/MS spectra from a feature of
 #' interest from All-ion fragmentation experiments (e.g. MSe, bbCID, AIF)
 #'
 #' @author  Goncalo Graca
-#' the script uses XCMS functionality to read and peak-pick the data
+#'
+#' 16 January 2025
+#'
+#' The script uses XCMS functionality to read and peak-pick the data
 #' as well as the PseudoMSMS function used to obtain the pseudo-MS/MS 
-#' from features of interest
+#' from a feature of interest
 
 ### Read the R packages used to load and plot data ###
 library(xcms)
