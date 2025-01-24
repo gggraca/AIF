@@ -3,7 +3,7 @@
 #'
 #' @author  Goncalo Graca
 #'
-#' 16 January 2025
+#' 24 January 2025
 #'
 #' The script uses XCMS functionality to read and peak-pick the data
 #' as well as the PseudoMSMS function used to obtain the pseudo-MS/MS 
@@ -44,7 +44,7 @@ fmz <- 585.2691869
 frt <- 72.79411156
 
 ## Run the PseudoMSMS function ##
-PseudoMSMS(ms1_peaks, ms2_peaks, fmz, frt, dppm = 5, drt = 30, cthr = 0.8)
+PseudoMSMS(xcmsF1, xcmsF2, ms1_peaks, ms2_peaks, fmz, frt, dppm = 5, drt = 30, cthr = 0.8)
 
 # if the feature of interest is found and correlated AIF features are found, then a pdf with the plotted results will be created in the working directory, 
 # as well as two files (.csv and .mgf) containing the PseudoMSMS m/z and intensity values
