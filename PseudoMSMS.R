@@ -2,8 +2,10 @@
 #' interest from All-ion fragmentation experiments (e.g. MSe, bbCID, AIF)
 #'
 #' @author  Goncalo Graca
-#' 16 January 2025
+#' 24 January 2025
 #'
+#' @param xcmsF1 XCMS object containing MS1 scans
+#' @param xcmsF2 XCMS object containing AIF scans
 #' @param peaksF1 LC-MS picked peaks from xcmsF1 dataset using XCMS.
 #' @param peaksF2 LC-MS picked peaks from xcmsF2 dataset using XCMS.
 #' @param fmz The m/z for the feature of interest.
@@ -13,7 +15,7 @@
 #' @param cthr Pearson correlation coefficient threshold for EIC profile correlation
 #' @param savePseudoMSMS if the generated the generated PseudoMSMS should be saved 
  
-PseudoMSMS <- function(ms1_peaks, ms2_peaks, fmz, frt, dppm = 5, drt = 30, cthr = 0.8, savePseudoMSMS = TRUE){
+PseudoMSMS <- function(xcmsF1, xcmsF2, ms1_peaks, ms2_peaks, fmz, frt, dppm = 5, drt = 30, cthr = 0.8, savePseudoMSMS = TRUE){
   # start with empty pseudoSpec and eicStack objects
   pseudoSpec <- NA
   eicStack <- NA
@@ -39,8 +41,8 @@ PseudoMSMS <- function(ms1_peaks, ms2_peaks, fmz, frt, dppm = 5, drt = 30, cthr 
   feic <- as.data.frame(feic)
   
   # get MS2 features within the same RT window of MS1 feature
-  idx <- which(ms2_peaks[,"rtmin"] >= f["rtmin"] &
-                 ms2_peaks[,"rtmax"] <= f["rtmax"])
+  idx <- which(ms2_peaks[,"rt"] >= f["rtmin"] &
+                 ms2_peaks[,"rt"] <= f["rtmax"])
   
   # save table of selected features
   if(length(idx) == 0) {
